@@ -1,0 +1,48 @@
+.values {
+    margin-bottom: 114px;
+}
+.values__container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: relative;
+
+    &:before {
+        content: "";
+        position: absolute;
+        background: url("~images/content/backpack.jpg") left bottom / contain no-repeat;
+        display: block;
+        bottom: 4%;
+        height: 80%;
+        width: 69%;
+        left: -17%;
+        z-index: -100;
+    }
+    & .values__title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        width: 60%;
+        margin-bottom: 82px;
+        margin-left: 6%;
+
+        & .values__title--text {
+            font-size: 30px;
+            font-weight: 700;
+            margin-bottom: 55px;
+        }
+
+        & .values__content {
+            color: rgba($text-color, 0.8);
+            font-weight: 600;
+            line-height: 1.8;
+        }
+    }
+
+    .values__widget {
+        display: flex;
+        justify-content: end;
+        width: 63%;
+    }
+}
