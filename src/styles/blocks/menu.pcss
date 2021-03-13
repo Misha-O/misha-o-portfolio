@@ -1,14 +1,33 @@
-.menu__list {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.menu {
+    .menu__list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-    & .menu__item {
-        font-size: 16px;
-        font-weight: 400;
-        margin-right: 40px;
-        &:last-child {
-            margin-right: 0;
+        &--footer {
+            justify-content: flex-start;
+        }
+
+        & .menu__item {
+            font-size: 16px;
+            font-weight: 400;
+            margin-right: 40px;
+            &:last-child {
+                margin-right: 0;
+            }
+            &:hover {
+                color: #5500f2;
+            }
+        }
+    }
+
+    &--color-white {
+        & .menu__list {
+            & .menu__item {
+                &:hover {
+                    color: #ff9a00;
+                }
+            }
         }
     }
 }

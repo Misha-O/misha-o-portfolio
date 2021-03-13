@@ -8,7 +8,7 @@ block content
           a.logo(href='#') MO
 
           nav.menu
-            - var menuItems = ['About me', 'Skills', 'My projects', 'Reviews']
+            - var menuItems = ['Обо мне', 'Навыки', 'Работы', 'Отзывы']
             ul.menu__list
               each item in menuItems 
                 li.menu__item 
@@ -18,18 +18,17 @@ block content
           ul.socials
             each item in socials
               li.socials__item
-                a(href="#").socials__link
+                a(href="#" target="_blank").socials__link
                   +icon(item, 'socials__icon') 
           
         .userinfo
-          .userinfo__title Site portfolio #[br] of web developer
-          .userinfo__name Mykhailo #[br] Oleinychenko
+          .userinfo__title Личный сайт #[br] веб разработчика
+          .userinfo__name Михаил #[br] Олейниченко
 
         .hero__bottom--buttons
           button.scroll-down--btn Scroll
-                //- +image('content/user.jpg', 'user-pic')
-                //- +icon('link', 'link-class')
-                //- .icon-bg
+
+    //- include ./pug-components/hero-section.pug
     
     section.about
       .container.about__container
@@ -42,9 +41,9 @@ block content
             .user__about
               - 
                 var userInfo = [
-                ['Location:', 'Somewhere'],
-                ['Age:', 'Random number'],
-                ['Born:', 'To live'],
+                ['Проживаю:', 'Новосибирск'],
+                ['Возраст:', '100 лет'],
+                ['Родился:', '1 января 1921'],
                 ];
 
               table.user__data
@@ -54,12 +53,12 @@ block content
                     td.user__data--content #{item[1]}
                     .user__about
         .about__content
-          .about__desc Hi, I am
+          .about__desc Привет, меня зовут
           .about__title Mykhailo Oleinychenko 
           .about__text--info
-            p I develop modern websites and single page applications, and some random text goes right here and probably a little bit here.
+            p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
           .about__quote 
-            | I made this site as part of my studies at the LoftSchool. I'll refresh my content in it a bit later. In the meantime, look how cool and beautiful everything is here!
+            | Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
     
   .middle-section
     .triangles.middle-section__triangles-top
@@ -70,9 +69,9 @@ block content
     section.values
       .container.values__container
         .values__title 
-          .values__title--text What can I do for you
+          .values__title--text Чем я могу быть полезен вам
           .values__content
-            p This website was done as part of the Vue JS course in the online school LoftSchool. I will definitely refresh the content a bit later, but for now, check out the look and feel of it and let me know your thoughts !
+            p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
         .values__widget
           - 
             var skillsCategories = [
@@ -99,7 +98,7 @@ block content
 
     section.projects 
       .container.projects__container 
-        .section-title.projects--title My projects
+        .section-title.projects--title Мои работы
         .projects-content 
           .projects-preview
             .projects-preview__pictures(data-slide="2")
@@ -108,7 +107,7 @@ block content
                 ul.thumbs 
                   - for (var i = 4; i > 0; i--)
                     li.thumbs__item 
-                      a(href="#").thumbs__link
+                      button(type="button").thumbs__link
                         +image(`content/slider-${i}.jpg`, "thumbs__pic")
               .projects-preview__btns 
                 .square-btns 
@@ -120,10 +119,10 @@ block content
                 each item in tags 
                   li.tags__item
                     .tag #{item}
-              .projects-preview__title Website of educational the center
+              .projects-preview__title Сайт школы образования
               .projects-preview__desc 
-                p This guy did studied web development not at some place, but at LoftSchool! Months of the most difficult trials and sleepless nights, almost.
-              a(href="#").iconed-link Check the website
+                p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+              a(href="#" target="_blank").iconed-link Посмотреть сайт
 
     .triangles.middle-section__triangles-bottom.triangles--pointed-down
       svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__shape.triangles__shape_left
@@ -135,7 +134,7 @@ block content
     .container.reviews__container 
       .slider 
         .slider__header.reviews__header
-          .section-title What people say about me
+          .section-title Что обо мне говорят
           .slider__buttons 
             button(type="button").round-btn.round-btn--right
             button(type="button").round-btn.round-btn--left
@@ -159,22 +158,22 @@ block content
           .footer__copyright--year &copy 2021
         .footer__copyright--owner 
           .footer__copyright--name Mykhailo Oleinychenko
-          .footer__copyright--text Personal website portfolio
+          .footer__copyright--text Личный сайт веб-разработчика
       .footer__data
         nav.menu.menu--color-white.footer__data-menu
-          ul.menu__list
+          ul.menu__list.menu__list--footer
             each item in menuItems 
               li.menu__item 
                 a(href='#').menu__link #{item}
         .footer__data--content 
           .footer__data--col
             .footer__data--text
-              p This site was developed as part of the vue js course at online school Loftschool.
+              p Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool
             .footer__data-socials
               ul.socials.socials--round-borders
                 each item in socials
                   li.socials__item
-                    a(href="#").socials__link
+                    a(href="#" target="_blank").socials__link
                       +icon(item, 'socials__icon')
           .footer__data--col
             .text-quote
