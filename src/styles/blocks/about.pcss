@@ -1,0 +1,89 @@
+section.about {
+    padding-bottom: 280px;
+}
+.about__container {
+    display: flex;
+    margin: 140px 8% 0;
+    /* padding-bottom: 270px; */
+
+    & .about__user {
+        display: flex;
+        // justify-content: space-between;
+        width: 36%;
+
+        & .user__avatar {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 80px;
+
+            & .user__avatar--style {
+                width: 200px;
+                height: 200px;
+                display: flex;
+                & img {
+                    border-radius: 50%;
+                }
+            }
+        }
+        & .user__data {
+            line-height: 30px;
+        }
+
+        & .user__data--row {
+            font-weight: 600;
+
+            & .user__data--title {
+                color: rgba($text-color, 0.5);
+            }
+            & .user__data--content {
+                padding-left: 25px;
+            }
+        }
+    }
+
+    & .about__content {
+        color: rgba($text-color, 0.5);
+        display: flex;
+        flex-direction: column;
+        // justify-content: space-between;
+        width: 54%;
+        /* flex: 1; */
+
+        & .about__desc {
+            font-weight: 600;
+            font-size: 16px;
+            color: rgba($text-color-two, 0.8);
+            margin-bottom: 30px;
+        }
+        & .about__title {
+            font-weight: 700;
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: $text-color-two;
+            /* width: 85%; */
+        }
+        & .about__text--info {
+            color: rgba($text-color-two, 0.8);
+            width: 80%;
+            margin-bottom: 110px;
+        }
+
+        & .about__quote {
+            font-style: italic;
+            margin-bottom: 36px;
+            position: relative;
+            width: 87%;
+
+            &:before {
+                content: "";
+                position: absolute;
+                background: url("~images/content/red-flake.png") center center no-repeat;
+                display: block;
+                height: 40px;
+                width: 30px;
+                bottom: 30%;
+                left: -7%;
+            }
+        }
+    }
+}

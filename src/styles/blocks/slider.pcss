@@ -1,0 +1,113 @@
+.slider__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 100px;
+    width: 62%;
+}
+.slider__content {
+    display: flex;
+    justify-content: flex-end;
+
+    & .slider__item {
+        width: 41%;
+        margin-right: 100px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+.slider__buttons {
+    display: flex;
+
+    .round-btn {
+        width: 50px;
+        height: 50px;
+        border: 2px solid currentColor;
+        position: relative;
+        border-radius: 50%;
+        margin-right: 30px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+        &:before {
+            content: "";
+            width: 12px;
+            height: 20px;
+            display: block;
+            background: svg-load("arrow-down.svg", fill=$text-color) center center / contain no-repeat;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        &--right {
+            &:before {
+                transform: translate(-50%, -50%) rotate(-180deg);
+            }
+        }
+        &:hover {
+            color: #5500f2;
+            &:before {
+                background: svg-load("arrow-down.svg", fill=#5500f2) center center / contain no-repeat;
+            }
+        }
+    }
+}
+
+.quote__text {
+    font-weight: 600;
+    font-size: 16px;
+    color: rgba($text-color-two, 0.6);
+    line-height: 1.8;
+    margin-bottom: 30px;
+    position: relative;
+    width: 80%;
+
+    &:before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 13%;
+        height: 60%;
+        opacity: 0.1;
+        background: svg-load("quote.svg", fill=$text-color) center center / contain no-repeat;
+        top: 10%;
+        left: -20%;
+
+        @include tablets {
+            background: none;
+        }
+    }
+}
+
+.quote__user {
+    display: flex;
+    align-items: center;
+
+    & .user-display__avatar {
+        margin-right: 30px;
+
+        & .user-display__avatar--style {
+            width: 74px;
+            height: 74px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+    }
+
+    & .user-display__data {
+        .user-display__name {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .user-display__occ {
+            color: rgba($text-color, 0.5);
+            font-weight: 600;
+        }
+    }
+}
