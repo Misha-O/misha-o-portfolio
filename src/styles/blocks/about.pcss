@@ -3,23 +3,54 @@ section.about {
 }
 .about__container {
     display: flex;
-    margin: 140px 8% 0;
+    margin: 130px 8% 0;
+    justify-content: space-around;
     /* padding-bottom: 270px; */
+
+    @include tablets {
+        margin: 110px 2% 0;
+        justify-content: space-between;
+    }
+    @include phones {
+        margin: 0 2%;
+        flex-direction: column;
+    }
 
     & .about__user {
         display: flex;
-        // justify-content: space-between;
         width: 36%;
+
+        @include phones {
+            width: 100%;
+            margin-bottom: 40px;
+            justify-content: center;
+        }
 
         & .user__avatar {
             display: flex;
             justify-content: center;
             margin-bottom: 80px;
 
+            @include tablets {
+                margin-bottom: 20px;
+            }
+            @include phones {
+                margin-bottom: 45px;
+            }
+
             & .user__avatar--style {
                 width: 200px;
                 height: 200px;
                 display: flex;
+
+                @include tablets {
+                    width: 232px;
+                    height: 232px;
+                }
+                @include phones {
+                    width: 170px;
+                    height: 170px;
+                }
                 & img {
                     border-radius: 50%;
                 }
@@ -45,15 +76,31 @@ section.about {
         color: rgba($text-color, 0.5);
         display: flex;
         flex-direction: column;
-        // justify-content: space-between;
         width: 54%;
-        /* flex: 1; */
+
+        @include tablets {
+            width: 55%;
+        }
+        @include phones {
+            width: 100%;
+            text-align: left;
+            margin-left: 5%;
+        }
 
         & .about__desc {
             font-weight: 600;
             font-size: 16px;
             color: rgba($text-color-two, 0.8);
             margin-bottom: 30px;
+
+            @include tablets {
+                font-size: 14px;
+                margin-bottom: 16px;
+            }
+            @include phones {
+                font-size: 14px;
+                margin-bottom: 0;
+            }
         }
         & .about__title {
             font-weight: 700;
@@ -61,18 +108,38 @@ section.about {
             margin-bottom: 20px;
             color: $text-color-two;
             /* width: 85%; */
+            @include tablets {
+                font-size: 30px;
+            }
+            @include phones {
+                margin-bottom: 40px;
+            }
         }
         & .about__text--info {
             color: rgba($text-color-two, 0.8);
             width: 80%;
             margin-bottom: 110px;
+            @include tablets {
+                font-size: 14px;
+                margin-bottom: 72px;
+            }
+            @include phones {
+                width: 100%;
+                margin-bottom: 115px;
+            }
         }
 
         & .about__quote {
             font-style: italic;
-            margin-bottom: 36px;
             position: relative;
             width: 87%;
+
+            @include tablets {
+                font-size: 14px;
+            }
+            @include phones {
+                width: 100%;
+            }
 
             &:before {
                 content: "";
@@ -83,6 +150,15 @@ section.about {
                 width: 30px;
                 bottom: 30%;
                 left: -7%;
+
+                @include tablets {
+                    bottom: 50%;
+                    left: -12%;
+                }
+                @include phones {
+                    top: -15%;
+                    left: -8%;
+                }
             }
         }
     }

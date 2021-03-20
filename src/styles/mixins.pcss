@@ -1,23 +1,28 @@
 @mixin desktopHd() {
-  @media screen and (max-width: $bp-desktop-hd) {
-    @content;
-  }
+    @media screen and (max-width: $bp-desktop-hd) {
+        @content;
+    }
+}
+@mixin desktopComp() {
+    @media screen and (max-width: $bp-desktop-comp) {
+        @content;
+    }
 }
 
 @mixin desktop() {
-  @media screen and (max-width: $bp-desktop) {
-    @content;
-  }
+    @media screen and (max-width: $bp-desktop) {
+        @content;
+    }
 }
 
 @mixin tablets() {
-  @media screen and (max-width: $bp-tablets) {
-    @content;
-  }
+    @media screen and (max-width: $bp-tablets) {
+        @content;
+    }
 }
 
 @mixin phones() {
-  @media screen and (max-width: $bp-phones) {
-    @content;
-  }
+    @media screen and (max-width: $bp-phones) {
+        @content;
+    }
 }

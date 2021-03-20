@@ -7,17 +7,44 @@
 .footer__container {
     display: flex;
     justify-content: space-between;
+
+    @include phones {
+        flex-direction: column;
+    }
 }
 
 .footer__copyright {
-    width: 35%;
+    // width: 35%;
     display: flex;
     justify-content: space-between;
-    flex-direction: column;
+    /* flex-direction: column; */
     color: rgba(#fff, 0.1);
 
+    @include desktopComp {
+        flex-direction: column;
+    }
+
+    @include desktop {
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 20%;
+    }
+    @include tablets {
+        width: 40%;
+        margin-left: 2%;
+        justify-content: flex-start;
+    }
+    @include phones {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
     & .footer__copyright--col {
-        flex: 1;
+        // flex: 1;
+
+        @include tablets {
+            flex: 0;
+        }
 
         & .footer__copyright--year {
             font-weight: 600;
@@ -27,8 +54,7 @@
     }
 
     & .footer__copyright--owner {
-        width: 41%;
-        padding-top: 9px;
+        width: 50%;
 
         & .footer__copyright--name {
             text-transform: uppercase;
@@ -36,7 +62,7 @@
             color: #fff;
             font-size: 18px;
             font-weight: bold;
-            margin-bottom: 34px;
+            margin-bottom: 20px;
         }
     }
 }
@@ -45,12 +71,15 @@
 }
 
 .footer__data {
-    padding-top: 25px;
+    /* padding-top: 25px; */
 
     .footer__data-menu {
         margin-bottom: 60px;
+        @include desktop {
+            padding-top: 16px;
+        }
         @include tablets {
-            margin-bottom: 30px;
+            margin-bottom: 5px;
         }
         & .menu__list {
             justify-content: flex-start;
@@ -71,15 +100,30 @@
     display: flex;
     justify-content: space-between;
 
+    @include tablets {
+        flex-direction: column;
+    }
+
     & .footer__data--col {
         width: 46%;
 
+        @include tablets {
+            width: 100%;
+        }
+
         & .footer__data--text {
+            width: 60%;
             margin-bottom: 40px;
+            @include tablets {
+                margin-bottom: 25px;
+                width: 80%;
+            }
         }
     }
 }
 .text-quote {
+    width: 80%;
+
     & .text-quote__text {
         margin-bottom: 30px;
     }
