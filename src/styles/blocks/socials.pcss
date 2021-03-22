@@ -1,6 +1,16 @@
 .socials {
     display: flex;
 
+    @include desktopHd {
+        margin-right: 150px;
+    }
+    @include desktop {
+        margin-right: 70px;
+    }
+    @include phones {
+        display: none;
+    }
+
     & .socials__item {
         margin-right: 35px;
         &:last-child {
@@ -16,7 +26,11 @@
         }
     }
 
-    &--round-borders {
+    &.socials--round-borders.socials--footer {
+        @include phones {
+            display: flex;
+            margin-right: 0;
+        }
         .socials__item {
             width: 50px;
             height: 50px;
@@ -45,6 +59,16 @@
                 left: 50%;
                 transform: translate(-50%, -50%);
             }
+        }
+    }
+}
+
+.footer {
+    & .footer__data-socials {
+        margin-bottom: 20px;
+
+        @include tablets {
+            margin-bottom: 60px;
         }
     }
 }
