@@ -1,14 +1,31 @@
 .userinfo {
     display: flex;
-    /* flex-direction: column; */
+    flex-direction: column;
     justify-content: center;
     text-align: center;
+
+    @include desktop {
+        flex-direction: row;
+    }
+    @include tablets {
+        flex-direction: column;
+        text-align: center;
+    }
 
     & .userinfo__title {
         font-size: 18px;
         color: rgba($text-color, 0.5);
         font-weight: 600;
-        margin-bottom: 20px;
+        margin-right: 20px;
+
+        @include tablets {
+            font-size: 16px;
+            margin-bottom: 45px;
+        }
+        @include phones {
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
     }
 
     & .userinfo__name {
@@ -16,5 +33,20 @@
         font-size: 72px;
         line-height: 1;
         flex-basis: 400px;
+
+        @include desktop {
+            margin-bottom: 0;
+            padding-top: 8px;
+            margin-right: 5%;
+        }
+        @include tablets {
+            font-size: 48px;
+            text-align: center;
+            margin-right: 0;
+        }
+        @include phones {
+            font-size: 36px;
+            padding: 0 10%;
+        }
     }
 }

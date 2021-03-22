@@ -10,6 +10,11 @@
             font-size: 24px;
             font-weight: 700;
             text-align: left;
+
+            @include tablets {
+                font-size: 18px;
+                text-align: center;
+            }
         }
 
         & .skills-row__list {
@@ -17,8 +22,16 @@
             flex-wrap: wrap;
             margin-left: -4%;
 
+            @include tablets {
+                margin-left: 0;
+                justify-content: center;
+            }
+
             & .skills-row__item {
                 margin-left: 4%;
+                @include tablets {
+                    margin-left: 1%;
+                }
             }
         }
     }
@@ -28,6 +41,14 @@
     width: 165px;
     height: 165px;
     position: relative;
+    @include tablets {
+        width: 135px;
+        height: 135px;
+    }
+    @include phones {
+        width: 115px;
+        height: 115px;
+    }
 }
 .skill__circle {
     fill: transparent;
@@ -39,6 +60,9 @@
         stroke-width: 12px;
         stroke-dasharray: 251;
         stroke-dashoffset: 120;
+        @include tablets {
+            stroke-width: 10px;
+        }
     }
 }
 
@@ -52,4 +76,8 @@
     font-size: 18px;
     color: rgba($text-color, 0.5);
     padding: 14px;
+
+    @include tablets {
+        font-size: 16px;
+    }
 }

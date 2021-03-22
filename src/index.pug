@@ -20,7 +20,13 @@ block content
               li.socials__item
                 a(href="#" target="_blank").socials__link
                   +icon(item, 'socials__icon') 
-          
+          //- .menu__hamburger
+          //-   nav.menu.menu__vertical
+          //-     .hamburger
+          //-       .hamburger__plank.one
+          //-       .hamburger__plank.two
+          //-       .hamburger__plank.three
+
         .userinfo
           .userinfo__title Личный сайт #[br] веб разработчика
           .userinfo__name Михаил #[br] Олейниченко
@@ -28,7 +34,6 @@ block content
         .hero__bottom--buttons
           button.scroll-down--btn Scroll
 
-    //- include ./pug-components/hero-section.pug
     
     section.about
       .container.about__container
@@ -73,56 +78,13 @@ block content
           .values__content
             p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
         .values__widget
-          - 
-            var skillsCategories = [
-              ["Frontend", ["HTML", "CSS", "Javascript", "Vue"]],
-              ["Workflow", ["Git", "Terminal", "Gulp", "Webpack"]]
-            ]
-
-          ul.skills
-            each category in skillsCategories 
-              li.skills__item 
-                .skills-row
-                  .skills-row__title #{category[0]}
-                  ul.skills-row__list 
-                    each skill in category[1]
-                      li.skills-row__item 
-                        .skill
-                          svg(viewBox="0 0 100 100").skill__circle--shape
-                            circle(cx="50" cy="50" r="40").skill__circle.skill__circle_under
-                            circle(cx="50" cy="50" r="40" stroke="url(#gradient)" transform='rotate(180 50 50)').skill__circle.skill__circle_above
-                            linearGradient(id="gradient" x1="0%" y1="0%" x2="100%" y2="0")
-                              stop(offset="0%" stop-color="#5500f2")
-                              stop(offset="100%" stop-color="#8f00ef")
-                          .skill__circle--title #{skill}
+          #skills-component
 
     section.projects 
       .container.projects__container 
         .section-title.projects--title Мои работы
         .projects-content 
-          .projects-preview
-            .projects-preview__pictures(data-slide="2")
-              +image("content/projects-preview-main.jpg", "projects-preview__img")
-              .projects-preview__thumbs
-                ul.thumbs 
-                  - for (var i = 4; i > 0; i--)
-                    li.thumbs__item 
-                      button(type="button").thumbs__link
-                        +image(`content/slider-${i}.jpg`, "thumbs__pic")
-              .projects-preview__btns 
-                .square-btns 
-                  button(type="button").square-btns__item.square-btns__item--next
-                  button(type="button").square-btns__item.square-btns__item--prev
-            .projects-preview__info
-              ul.tags
-                - var tags = ["HTML", "CSS", "Javascript"]
-                each item in tags 
-                  li.tags__item
-                    .tag #{item}
-              .projects-preview__title Сайт школы образования
-              .projects-preview__desc 
-                p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
-              a(href="#" target="_blank").iconed-link Посмотреть сайт
+          #projects-component
 
     .triangles.middle-section__triangles-bottom.triangles--pointed-down
       svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__shape.triangles__shape_left
@@ -132,24 +94,7 @@ block content
   
   section.reviews 
     .container.reviews__container 
-      .slider 
-        .slider__header.reviews__header
-          .section-title Что обо мне говорят
-          .slider__buttons 
-            button(type="button").round-btn.round-btn--right
-            button(type="button").round-btn.round-btn--left
-        ul.slider__content
-          - for (var i = 0; i < 2; i++)
-            li.slider__item
-              .quote__text 
-                p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-              .quote__user 
-                .user-display__avatar 
-                  .user-display__avatar--style 
-                    +image(`content/review-avatar-${i+1}.png`, "user-display__pic") 
-                .user-display__data
-                  .user-display__name Дмитрий Ковальчук
-                  .user-display__occ Основатель Loftschool
+      #reviews-component
   
   footer.footer 
     .container.footer__container 
@@ -170,7 +115,7 @@ block content
             .footer__data--text
               p Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool
             .footer__data-socials
-              ul.socials.socials--round-borders
+              ul.socials.socials--round-borders.socials--footer
                 each item in socials
                   li.socials__item
                     a(href="#" target="_blank").socials__link

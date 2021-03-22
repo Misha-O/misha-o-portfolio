@@ -3,14 +3,29 @@
     justify-content: space-between;
     margin-bottom: 100px;
     width: 62%;
+
+    @include tablets {
+        margin-bottom: 55px;
+        width: 70%;
+    }
+    @include phones {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
 }
 .slider__content {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-evenly;
 
     & .slider__item {
         width: 41%;
         margin-right: 100px;
+
+        @include tablets {
+            margin-right: 70px;
+            width: 43%;
+        }
 
         &:last-child {
             margin-right: 0;
@@ -20,6 +35,9 @@
 
 .slider__buttons {
     display: flex;
+    @include phones {
+        margin-top: 20px;
+    }
 
     .round-btn {
         width: 50px;
@@ -64,7 +82,11 @@
     line-height: 1.8;
     margin-bottom: 30px;
     position: relative;
-    width: 80%;
+    width: 70%;
+
+    @include tablets {
+        font-size: 14px;
+    }
 
     &:before {
         content: "";
@@ -75,9 +97,9 @@
         opacity: 0.1;
         background: svg-load("quote.svg", fill=$text-color) center center / contain no-repeat;
         top: 10%;
-        left: -20%;
+        right: -20%;
 
-        @include tablets {
+        @include phones {
             background: none;
         }
     }
@@ -103,11 +125,19 @@
             font-size: 18px;
             font-weight: 700;
             margin-bottom: 16px;
+
+            @include tablets {
+                font-size: 16px;
+            }
         }
 
         .user-display__occ {
             color: rgba($text-color, 0.5);
             font-weight: 600;
+
+            @include tablets {
+                font-size: 14px;
+            }
         }
     }
 }

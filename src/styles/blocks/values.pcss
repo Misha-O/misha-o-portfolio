@@ -1,11 +1,23 @@
 .values {
     margin-bottom: 300px;
+    @include tablets {
+        margin-bottom: 460px;
+    }
 }
 .values__container {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     position: relative;
+
+    @include tablets {
+        text-align: center;
+        align-items: center;
+    }
+    @include tablets {
+        text-align: left;
+        align-items: center;
+    }
 
     &:before {
         content: "";
@@ -17,6 +29,18 @@
         height: 87%;
         width: 70%;
         z-index: -100;
+
+        @include tablets {
+            bottom: -40%;
+            left: 50%;
+            height: 300px;
+            transform: translateX(-50%);
+            background-position: center center;
+        }
+        @include phones {
+            bottom: -35%;
+            width: 100%;
+        }
     }
     & .values__title {
         display: flex;
@@ -24,24 +48,44 @@
         justify-content: center;
         width: 75%;
         margin-bottom: 130px;
+        @include tablets {
+            margin-bottom: 50px;
+            width: 45%;
+        }
+        @include phones {
+            width: 100%;
+        }
 
         & .values__title--text {
             font-size: 30px;
             font-weight: 700;
             margin-bottom: 55px;
+
+            @include phones {
+                font-size: 24px;
+            }
         }
 
         & .values__content {
             color: rgba($text-color, 0.8);
             font-weight: 600;
             line-height: 1.8;
+            font-size: 16px;
             width: 85%;
+            @include tablets {
+                width: 100%;
+                font-size: 14px;
+            }
         }
     }
 
     .values__widget {
         display: flex;
-        justify-content: end;
+        justify-content: flex-end;
         width: 67%;
+
+        @include tablets {
+            width: 95%;
+        }
     }
 }

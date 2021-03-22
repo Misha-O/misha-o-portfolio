@@ -1,5 +1,19 @@
 section.reviews {
-    background: url("~images/content/budda.jpg") top 22% right 54% no-repeat;
+    background: url("~images/content/budda.jpg") top 22% right 82% no-repeat;
     padding-top: 225px;
     padding-bottom: 220px;
+
+    @include desktop {
+        background: url("~images/content/budda.jpg") top 22% right 54% no-repeat;
+    }
+    @include tablets {
+        background: url("~images/content/budda.jpg") top 11% right 46% no-repeat;
+        padding-bottom: 190px;
+    }
+}
+.reviews__container {
+    margin-left: 4%;
+    /* @include tablets {
+        margin-left: 4%;
+    } */
 }

@@ -28,12 +28,23 @@ body {
 
 .container {
     margin: 0 auto;
-    /* max-width: 1480px;
-    width: 95%; */
-    width: 1200px;
+    max-width: 1800px;
+    width: 95%;
 
+    @include desktopComp {
+        max-width: 1600px;
+        width: 95%;
+    }
+    @include desktop {
+        max-width: 1200px;
+        width: 95%;
+    }
+    @include tablets {
+        max-width: 768px;
+        width: 95%;
+    }
     @include phones {
-        width: 85%;
+        width: 95%;
     }
 }
 
