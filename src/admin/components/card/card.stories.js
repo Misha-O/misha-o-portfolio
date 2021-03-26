@@ -1,13 +1,13 @@
 import card from "./card.vue";
 
 export default {
-  title: "card",
-  component: card,
+    title: "card",
+    component: card,
 };
 
 export const defaultView = () => ({
-  components: { card },
-  template: `
+    components: { card },
+    template: `
     <card
       title="Заголовок" 
     >
@@ -17,27 +17,26 @@ export const defaultView = () => ({
 });
 
 defaultView.story = {
-  name: "Стандартный вид"
-}
+    name: "Стандартный вид",
+};
 
 export const complexView = () => ({
-  components: {card},
-  template: `
+    components: { card },
+    template: `
     <card>
       <h1 slot="title">Заголовок</h1> 
       <h1 slot="content">Содержимое</h1> 
     </card> 
-  `
-})
+  `,
+});
 
 complexView.story = {
-  name: "Блок в заголовке"
-}
-
+    name: "Блок в заголовке",
+};
 
 export const simpleView = () => ({
-  components: { card },
-  template: `
+    components: { card },
+    template: `
     <card simple>
       <h1>Содержимое</h1> 
     </card>
@@ -45,5 +44,17 @@ export const simpleView = () => ({
 });
 
 simpleView.story = {
-  name: "Упрощенный вид"
-}
+    name: "Упрощенный вид",
+};
+export const slimView = () => ({
+    components: { card },
+    template: `
+    <card slim>
+      <h1>Содержимое</h1>
+    </card>
+  `,
+});
+
+slimView.story = {
+    name: "С маленькими отступами",
+};
