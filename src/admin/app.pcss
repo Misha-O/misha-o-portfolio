@@ -1,3 +1,5 @@
+@import "../styles/mixins.pcss";
+
 .app-container {
     min-height: 100vh;
     display: flex;
@@ -6,17 +8,28 @@
 .header {
     display: flex;
     margin-bottom: 60px;
+    @include phones {
+        flex-direction: column;
+    }
 }
 .page-content {
     padding: 60px 0 20px;
     background: url("../images/content/admin-bg.jpg") center center / cover no-repeat;
     flex: 1;
+    @include phones {
+        padding-top: 20px;
+    }
 }
 .title {
     margin-right: 60px;
     font-size: 21px;
     font-weight: 700;
     color: $text-color;
+    @include phones {
+        font-size: 18px;
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
 }
 .skills {
     display: flex;
@@ -25,6 +38,13 @@
 .item {
     width: calc(100% / 2 - 30px);
     margin-right: 25px;
+    @include tablets {
+        margin-bottom: 15px;
+    }
+
+    @include phones {
+        width: 100%;
+    }
 
     &:last-child {
         margin-right: 0;

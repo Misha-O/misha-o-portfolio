@@ -1,3 +1,5 @@
+@import "../../../styles/mixins.pcss";
+
 .list {
     display: flex;
 }
@@ -22,6 +24,11 @@
             height: 3px;
             background: #383bcf;
         }
+    }
+}
+.item {
+    @include tablets {
+        margin-bottom: 0;
     }
 }
 

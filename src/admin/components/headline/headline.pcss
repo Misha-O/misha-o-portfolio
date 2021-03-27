@@ -1,3 +1,4 @@
+@import "../../../styles/mixins.pcss";
 .headline-component {
     background: linear-gradient(to top, #3e3e59, #454573);
     color: #ffffff80;
@@ -6,9 +7,18 @@
     display: flex;
     padding: 16px 0;
     align-items: center;
+
+    @include phones {
+        justify-content: flex-start;
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
 .buttons {
     margin-left: auto;
+    @include phones {
+        margin-left: 45px;
+    }
 }
 .btn {
     color: #ffffffb3;
@@ -16,4 +26,7 @@
 }
 .title {
     margin-left: 30px;
+    @include phones {
+        display: none;
+    }
 }
