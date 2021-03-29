@@ -5,7 +5,7 @@
         </headline>
         <navigation />
         <div class="page-content">
-            <div class="container">
+            <div class="container admin__container">
                 <div class="header">
                     <div class="title">Блок "Обо мне"</div>
                     <iconed-btn @click="emptyCatIsShown = true" v-if="emptyCatIsShown === false" type="iconed" title="Добавить группу" />
