@@ -1,24 +1,26 @@
 <template>
-    <div class="app-container">
-        <headline title="Панель администрирования">
-            <user />
-        </headline>
-        <navigation />
-        <div class="page-content">
-            <div class="container admin__container">
-                <div class="header">
-                    <div class="title">Блок "Обо мне"</div>
-                    <iconed-btn @click="emptyCatIsShown = true" v-if="emptyCatIsShown === false" type="iconed" title="Добавить группу" />
-                </div>
-                <ul class="skills">
-                    <li class="item" v-if="emptyCatIsShown">
-                        <category @remove="emptyCatIsShown = false" empty />
-                    </li>
-                    <li class="item" v-for="category in categories" :key="category.id">
-                        <category :title="category.category" :skills="category.skills" />
-                    </li>
-                </ul>
-            </div>
+    <div class="wrapper admin-wrapper">
+        <div class="container">
+            <headline title="Панель администрирования">
+                <user />
+            </headline>
+            <navigation />
+            <main class="maincontent">
+                <section class="admin__container">
+                    <div class="header">
+                        <h2 class="title">Блок "Обо мне"</h2>
+                        <iconed-btn @click="emptyCatIsShown = true" v-if="emptyCatIsShown === false" type="iconed" title="Добавить группу" />
+                    </div>
+                    <ul class="skills">
+                        <li class="item" v-if="emptyCatIsShown">
+                            <category @remove="emptyCatIsShown = false" empty />
+                        </li>
+                        <li class="item" v-for="category in categories" :key="category.id">
+                            <category :title="category.category" :skills="category.skills" />
+                        </li>
+                    </ul>
+                </section>
+            </main>
         </div>
     </div>
 </template>

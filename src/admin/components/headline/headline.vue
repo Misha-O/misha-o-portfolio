@@ -1,13 +1,13 @@
 <template>
-    <div class="headline-component">
-        <div class="container headline-container">
+    <header class="headline-component">
+        <div class="headline-container">
             <slot />
             <div class="title">{{ title }}</div>
             <div class="buttons">
                 <button type="button" class="btn">Выйти</button>
             </div>
         </div>
-    </div>
+    </header>
 </template>
 
 <script>

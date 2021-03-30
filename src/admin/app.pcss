@@ -1,10 +1,5 @@
 @import "../styles/mixins.pcss";
 
-.app-container {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
 .header {
     display: flex;
     margin-bottom: 60px;
@@ -12,8 +7,9 @@
         flex-direction: column;
     }
 }
-.page-content {
-    padding: 60px 0 20px;
+.maincontent {
+    padding-top: 60px;
+    padding-bottom: 10px;
     background: url("../images/content/admin-bg.jpg") center center / cover no-repeat;
     flex: 1;
     @include phones {
@@ -21,13 +17,7 @@
     }
 }
 .admin__container {
-    margin: 0 auto;
-    max-width: 1480px;
-    width: 93%;
-
-    @include tablets {
-        width: 95%;
-    }
+    padding: 0 1%;
 }
 .title {
     margin-right: 60px;
@@ -47,16 +37,14 @@
 .item {
     width: calc(100% / 2 - 30px);
     margin-right: 25px;
-    min-height: 400px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 
     @include tablets {
         width: calc(100% / 2 - 15px);
         margin-right: 10px;
         margin-bottom: 15px;
     }
-
-    @include phones {
+    @include tablets-two {
         width: 100%;
     }
 
