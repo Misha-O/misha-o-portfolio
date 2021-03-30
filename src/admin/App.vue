@@ -1,6 +1,6 @@
 <template>
     <div class="wrapper admin-wrapper">
-        <div class="container">
+        <div class="container main-container">
             <headline title="Панель администрирования">
                 <user />
             </headline>
