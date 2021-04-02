@@ -12,11 +12,16 @@
                     placeholder="Название новой группы"
                     :value="value"
                     :errorText="errorText"
+                    required
                     @input="$emit('input', $event)"
                     @keydown.native.enter="onApprove"
                     autofocus="autofocus"
                     no-side-paddings="no-side-paddings"
                 ></app-input>
+                <!-- <div class="error">
+                    {{ validation.firstError("value") }}
+                </div> -->
+                <tooltip v-if="validation.hasError('value')" />
             </div>
             <div class="buttons">
                 <div class="button-icon">
@@ -31,7 +36,19 @@
 </template>
 
 <script>
+import { Validator } from "simple-vue-validator";
+import appInput from "../input/input";
+import icon from "../icon/icon";
+import tooltip from "../tooltip/tooltip";
+
 export default {
+    components: { appInput, icon, tooltip },
+    mixins: [require("simple-vue-validator").mixin],
+    validators: {
+        value(value) {
+            return Validator.value(value).required(this.errorText);
+        },
+    },
     props: {
         value: {
             type: String,
@@ -52,7 +69,14 @@ export default {
     },
     methods: {
         onApprove() {
-            if (this.title.trim() === "") return false;
+            if (this.title.trim() === "") {
+                this.$validate().then(success => {
+                    if (!success) return;
+                    this.value = "";
+                    this.validation.reset();
+                });
+                return false;
+            }
             if (this.title.trim() === this.value.trim()) {
                 this.editmode = false;
             } else {
@@ -60,11 +84,25 @@ export default {
             }
         },
     },
-    components: {
-        icon: () => import("components/icon"),
-        appInput: () => import("components/input"),
-    },
+    // components: {
+    //     icon: () => import("components/icon"),
+    //     appInput: () => import("components/input"),
+    // },
 };
 </script>
 
 <style lang="postcss" scoped src="./editLine.pcss"></style>
+<style lang="postcss">
+.input {
+    position: relative;
+}
+.input .valid-error {
+    border: 1px solid firebrick;
+}
+.input .error {
+    position: absolute;
+    top: -70%;
+    left: 0;
+    color: firebrick;
+}
+</style>
