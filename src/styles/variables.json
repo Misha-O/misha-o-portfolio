@@ -8,5 +8,6 @@
     "bp-desktop-comp": "1600px",
     "bp-desktop": "1200px",
     "bp-tablets": "768px",
+    "bp-tablets-two": "640px",
     "bp-phones": "480px"
 }
