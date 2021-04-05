@@ -17,6 +17,9 @@
                             @create-skill="createSkill($event, category.id)"
                             @edit-skill="editSkill"
                             @remove-skill="removeSkill"
+                            @remove="removeCategory(category.id)"
+                            @approve="approveEditCategory(category)"
+                            @input="editCategory($event)"
                         />
                     </li>
                 </ul>
@@ -52,6 +55,8 @@ export default {
         ...mapActions({
             createCategoryAction: "categories/create",
             fetchCategoriesAction: "categories/fetch",
+            removeCategoryAction: "categories/remove",
+            editCategoryAction: "categories/edit",
             addSkillAction: "skills/add",
             removeSkillAction: "skills/remove",
             editSkillAction: "skills/edit",
@@ -63,6 +68,17 @@ export default {
             } catch (error) {
                 console.log(error.message);
             }
+        },
+        removeCategory(categoryID) {
+            this.removeCategoryAction(categoryID);
+        },
+        editCategory(categoryEdittedName) {
+            console.log("categoryEdittedName", categoryEdittedName);
+            return categoryEdittedName;
+        },
+        approveEditCategory(category) {
+            console.log("category.category: !", category.category);
+            this.editCategoryAction(category);
         },
         async createSkill(skill, categoryId) {
             const newSkill = {

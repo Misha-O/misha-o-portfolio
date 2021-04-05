@@ -1,6 +1,13 @@
 <template>
     <card slim>
-        <editLine slot="title" v-model="categoryTitle" :editModeByDefault="empty" @remove="$emit('remove', $event)" @approve="$emit('approve', $event)" />
+        <editLine
+            slot="title"
+            v-model="categoryTitle"
+            :editModeByDefault="empty"
+            @remove="$emit('remove', $event)"
+            @approve="$emit('approve', $event)"
+            @input="$emit('input', $event)"
+        />
         <template slot="content">
             <ul class="skills" v-if="empty === false">
                 <li class="item" v-for="skill in skills" :key="skill.id">

@@ -10,6 +10,14 @@ export default {
         ADD_CATEGORY(state, category) {
             state.data.unshift(category);
         },
+        REMOVE_CATEGORY(state, categoryId) {
+            state.data = state.data.filter(category => category.id !== categoryId);
+        },
+        EDIT_CATEGORY(state, categoryToEdit) {
+            console.log("categoryToEdit", categoryToEdit);
+            let data = state.data.filter(category => category.id === categoryToEdit.id);
+            data.category = categoryToEdit.category;
+        },
         ADD_SKILL(state, newSkill) {
             state.data = state.data.map(category => {
                 if (category.id === newSkill.category) {
@@ -58,14 +66,26 @@ export default {
                 console.log(error);
             }
         },
-        // async remove({ commit }, categoryToRemove) {
-        //     try {
-        //         const { data } = await this.$axios.delete(`/skills/${categoryToRemove.id}`);
-        //         commit("categories/REMOVE_CATEGORY", categoryToRemove, { root: true });
-        //     } catch (error) {
-        //         console.log(error);
-        //         throw new Error("Error remove actions");
-        //     }
-        // },
+        async remove({ commit }, categoryId) {
+            try {
+                const { data } = await this.$axios.delete(`/categories/${categoryId}`);
+                console.log(data);
+                commit("categories/REMOVE_CATEGORY", categoryId, { root: true });
+            } catch (error) {
+                console.log(error);
+                throw new Error("Error remove actions");
+            }
+        },
+        async edit({ commit }, categoryToEdit) {
+            try {
+                // console.log("categoryToEdit:", categoryToEdit);
+                const { data } = await this.$axios.post(`/categories/${categoryToEdit.id}`, { title: categoryToEdit.category });
+                // console.log("data:", data);
+                commit("categories/EDIT_CATEGORY", data.category, { root: true });
+            } catch (error) {
+                console.log(error);
+                throw new Error("Error edit actions");
+            }
+        },
     },
 };
