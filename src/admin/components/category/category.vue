@@ -1,6 +1,6 @@
 <template>
     <card slim>
-        <editLine slot="title" v-model="categoryTitle" :editModeByDefault="empty" @remove="$emit('remove', $event)" />
+        <editLine slot="title" v-model="categoryTitle" :editModeByDefault="empty" @remove="$emit('remove', $event)" @approve="$emit('approve', $event)" />
         <template slot="content">
             <ul class="skills" v-if="empty === false">
                 <li class="item" v-for="skill in skills" :key="skill.id">
@@ -8,7 +8,7 @@
                 </li>
             </ul>
             <div class="bottom-line">
-                <skill-add-line :blocked="empty" />
+                <skill-add-line @approve="$emit('create-skill', $event)" :blocked="empty" />
             </div>
         </template>
     </card>

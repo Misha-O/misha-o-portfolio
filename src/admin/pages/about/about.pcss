@@ -1,4 +1,4 @@
-@import "../styles/mixins.pcss";
+@import "../../../styles/mixins.pcss";
 
 .header {
     display: flex;
@@ -10,7 +10,7 @@
 .maincontent {
     padding-top: 60px;
     padding-bottom: 10px;
-    background: url("../images/content/admin-bg.jpg") center center / cover no-repeat;
+    background: url("../../../images/content/admin-bg.jpg") center center / cover no-repeat;
     flex: 1;
     @include phones {
         padding-top: 20px;
@@ -53,22 +53,5 @@
 
     &:last-child {
         margin-right: 0;
-    }
-}
-
-.notification {
-    transition: transform 0.3s;
-}
-
-.notify-container {
-    position: fixed;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-
-    &.active {
-        .notification {
-            transform: translateY(-100%);
-        }
     }
 }

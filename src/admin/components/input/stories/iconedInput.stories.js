@@ -1,13 +1,13 @@
 import appInput from "../input.vue";
 
 export default {
-  title: "input/iconed",
-  component: appInput,
+    title: "input/iconed",
+    component: appInput,
 };
 
 export const defaultView = () => ({
-  components: { appInput },
-  template: `
+    components: { appInput },
+    template: `
     <div>
       <app-input icon="user" />
       <app-input icon="key" />
@@ -16,16 +16,16 @@ export const defaultView = () => ({
 });
 
 defaultView.story = {
-  name: "Стандартный вид",
+    name: "Стандартный вид",
 };
 
 export const errorView = () => ({
-  components: { appInput },
-  template: `
-      <app-input icon="user" errorMessage="Ошибка" />
+    components: { appInput },
+    template: `
+      <app-input icon="user" errorText="Ошибка" />
   `,
 });
 
 errorView.story = {
-  name: "С ошибкой",
+    name: "С ошибкой",
 };

@@ -1,41 +1,40 @@
 import appInput from "../input.vue";
 
 export default {
-  title: "input/default",
-  component: appInput,
+    title: "input/default",
+    component: appInput,
 };
 
 export const defaultView = () => ({
-  components: { appInput },
-  data() {
-    return {
-      title : "Текст"
-    }
-  },
-  template: `
+    components: { appInput },
+    data() {
+        return {
+            title: "Текст",
+        };
+    },
+    template: `
     <app-input v-model="title" />
   `,
 });
 
 defaultView.story = {
-  name: "Стандартный вид",
+    name: "Стандартный вид",
 };
 
 export const noPaddingsView = () => ({
-  components: { appInput },
-  template: `
+    components: { appInput },
+    template: `
     <app-input noSidePaddings />
   `,
 });
 
 noPaddingsView.story = {
-  name: "Без отступов",
+    name: "Без отступов",
 };
 
-
 export const labeledView = () => ({
-  components: { appInput },
-  template: `
+    components: { appInput },
+    template: `
     <app-input
       title="Фио"
     />
@@ -43,26 +42,25 @@ export const labeledView = () => ({
 });
 
 labeledView.story = {
-  name: "С заголовком",
+    name: "С заголовком",
 };
 
 export const errorView = () => ({
-  components: { appInput },
-  template: `
+    components: { appInput },
+    template: `
     <app-input
-      errorMessage="Произошла ошибка"
+      errorText="Произошла ошибка"
     />
   `,
 });
 
 errorView.story = {
-  name: "С ошибкой",
+    name: "С ошибкой",
 };
 
-
 export const typeView = () => ({
-  components: { appInput },
-  template: `
+    components: { appInput },
+    template: `
     <app-input
       type="number"
       min="0"
@@ -73,6 +71,5 @@ export const typeView = () => ({
 });
 
 typeView.story = {
-  name: "Другой тип",
+    name: "Другой тип",
 };
-
