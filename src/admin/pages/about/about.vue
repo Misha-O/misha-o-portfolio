@@ -72,10 +72,6 @@ export default {
         removeCategory(categoryID) {
             this.removeCategoryAction(categoryID);
         },
-        // editCategory(categoryEdittedName) {
-        //     console.log("categoryEdittedName", categoryEdittedName);
-        //     return categoryEdittedName;
-        // },
         approveEditCategory(event, category) {
             category = { ...category, category: event };
             this.tempEdditedValue = event;

@@ -71,6 +71,7 @@ export default {
                 this.editmode = false;
             } else {
                 this.$emit("approve", this.value);
+                this.editmode = false;
             }
         },
     },
