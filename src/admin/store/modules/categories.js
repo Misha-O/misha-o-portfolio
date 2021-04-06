@@ -14,7 +14,7 @@ export default {
             state.data = state.data.filter(category => category.id !== categoryId);
         },
         EDIT_CATEGORY(state, categoryToEdit) {
-            console.log("categoryToEdit", categoryToEdit);
+            console.log("categoryToEdit STORE: ", categoryToEdit);
             let data = state.data.filter(category => category.id === categoryToEdit.id);
             data.category = categoryToEdit.category;
         },
@@ -78,9 +78,7 @@ export default {
         },
         async edit({ commit }, categoryToEdit) {
             try {
-                // console.log("categoryToEdit:", categoryToEdit);
                 const { data } = await this.$axios.post(`/categories/${categoryToEdit.id}`, { title: categoryToEdit.category });
-                // console.log("data:", data);
                 commit("categories/EDIT_CATEGORY", data.category, { root: true });
             } catch (error) {
                 console.log(error);

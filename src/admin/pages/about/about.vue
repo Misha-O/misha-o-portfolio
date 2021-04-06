@@ -18,8 +18,7 @@
                             @edit-skill="editSkill"
                             @remove-skill="removeSkill"
                             @remove="removeCategory(category.id)"
-                            @approve="approveEditCategory(category)"
-                            @input="editCategory($event)"
+                            @approve="approveEditCategory($event, category)"
                         />
                     </li>
                 </ul>
@@ -44,6 +43,7 @@ export default {
     data() {
         return {
             emptyCatIsShown: false,
+            tempEdditedValue: ",",
         };
     },
     computed: {
@@ -72,12 +72,13 @@ export default {
         removeCategory(categoryID) {
             this.removeCategoryAction(categoryID);
         },
-        editCategory(categoryEdittedName) {
-            console.log("categoryEdittedName", categoryEdittedName);
-            return categoryEdittedName;
-        },
-        approveEditCategory(category) {
-            console.log("category.category: !", category.category);
+        // editCategory(categoryEdittedName) {
+        //     console.log("categoryEdittedName", categoryEdittedName);
+        //     return categoryEdittedName;
+        // },
+        approveEditCategory(event, category) {
+            category = { ...category, category: event };
+            this.tempEdditedValue = event;
             this.editCategoryAction(category);
         },
         async createSkill(skill, categoryId) {
