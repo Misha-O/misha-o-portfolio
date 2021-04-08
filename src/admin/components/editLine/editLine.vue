@@ -18,9 +18,6 @@
                     autofocus="autofocus"
                     no-side-paddings="no-side-paddings"
                 ></app-input>
-                <!-- <div class="error">
-                    {{ validation.firstError("value") }}
-                </div> -->
                 <tooltip v-if="validation.hasError('value')" />
             </div>
             <div class="buttons">
@@ -28,7 +25,7 @@
                     <icon symbol="tick" @click="onApprove"></icon>
                 </div>
                 <div class="button-icon">
-                    <icon symbol="cross" @click="$emit('remove')"></icon>
+                    <icon symbol="cross" @click="$emit('remove', value)"></icon>
                 </div>
             </div>
         </div>
@@ -69,25 +66,15 @@ export default {
     },
     methods: {
         onApprove() {
-            if (this.title.trim() === "") {
-                this.$validate().then(success => {
-                    if (!success) return;
-                    this.value = "";
-                    this.validation.reset();
-                });
-                return false;
-            }
+            if (this.value.trim() === "") return false;
             if (this.title.trim() === this.value.trim()) {
                 this.editmode = false;
             } else {
                 this.$emit("approve", this.value);
+                this.editmode = false;
             }
         },
     },
-    // components: {
-    //     icon: () => import("components/icon"),
-    //     appInput: () => import("components/input"),
-    // },
 };
 </script>
 
