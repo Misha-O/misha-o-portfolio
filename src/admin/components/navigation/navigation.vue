@@ -13,7 +13,7 @@
 <script>
 const links = [
     { id: 0, title: "Обо мне", alias: "about", active: false },
-    { id: 1, title: "Работы", alias: "works", active: true },
+    { id: 1, title: "Работы", alias: "projects", active: true },
     { id: 2, title: "Отзывы", alias: "reviews", active: false },
 ];
 export default {

@@ -5,6 +5,7 @@ Vue.use(VueRouter);
 
 import about from "./pages/about/about.vue";
 import login from "./pages/login/login.vue";
+import projects from "./pages/projects/projects.vue";
 import header from "./components/header/header.vue";
 const routes = [
     {
@@ -17,6 +18,10 @@ const routes = [
     {
         path: "/login",
         component: login,
+    },
+    {
+        path: "/projects",
+        component: projects,
     },
 ];
 

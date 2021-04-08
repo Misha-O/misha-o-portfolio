@@ -1,24 +1,24 @@
 <template>
-  <component 
-    :is="type"
-    v-bind="$attrs"
-    v-on="$listeners"
-  /> 
+    <component :is="type" v-bind="$attrs" v-on="$listeners" />
 </template>
 
 <script>
+import defaultBtn from "./types/defaultBtn";
+import iconedBtn from "./types/iconedBtn";
+import squareBtn from "./types/squareBtn";
+import roundBtn from "./types/roundBtn";
 export default {
-  props: {
-    type: {
-      type: String,
-      default: "default"
-    }
-  },
-  components: {
-    default: () => import("./types/defaultBtn"),
-    square: () => import("./types/squareBtn"),
-    iconed: () => import("./types/iconedBtn"),
-    round: () => import("./types/roundBtn"),
-  }
-}
+    components: {
+        default: defaultBtn,
+        square: squareBtn,
+        iconed: iconedBtn,
+        round: roundBtn,
+    },
+    props: {
+        type: {
+            type: String,
+            default: "default",
+        },
+    },
+};
 </script>

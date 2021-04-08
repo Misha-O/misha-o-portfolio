@@ -1,40 +1,40 @@
 <template>
     <div class="tags-adder-component">
-        <input title="Добавление тега" v-model="currentTags" @input="$emit('change', currentTags)" />
+        <app-input title="Добавление тега" v-model="currentTags" @input="$emit('change', currentTags)" />
         <ul class="tags">
             <li class="tag" v-for="(tag, index) in tagsArray" :key="`${tag}${index}`" v-if="tag.trim()">
-                <tag @click="removeTag(tag)" interactive :title="tag" />
+                <tag interactive :title="tag" @click="removeTag(tag)" />
             </li>
         </ul>
     </div>
 </template>
 
 <script>
-import input from "../input/input";
-import tag from "../tag/tag";
+import appInput from "../input";
+import tag from "../tag";
 export default {
+    components: {
+        appInput,
+        tag,
+    },
     props: {
         tags: {
             type: String,
             default: "",
         },
     },
-    components: {
-        input,
-        tag,
+    model: {
+        prop: "tags",
+        event: "change",
     },
     data() {
         return {
             currentTags: this.tags,
         };
     },
-    model: {
-        prop: "tags",
-        event: "change",
-    },
     computed: {
         tagsArray() {
-            return this.currentTags.trim().split(",");
+            return this.tags.trim().split(",");
         },
     },
     methods: {

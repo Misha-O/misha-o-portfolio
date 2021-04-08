@@ -1,0 +1,27 @@
+@import "../../../styles/mixins.pcss";
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -20px;
+}
+
+.item {
+    width: calc(100% / 3 - 20px);
+    margin-left: 20px;
+}
+
+.form {
+    margin-bottom: 30px;
+}
+.page-title {
+    margin-right: 60px;
+    font-size: 21px;
+    font-weight: 700;
+    color: $text-color;
+    @include phones {
+        font-size: 18px;
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+}
