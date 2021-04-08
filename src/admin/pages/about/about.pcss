@@ -41,6 +41,7 @@
     width: calc(100% / 2 - 30px);
     margin-right: 25px;
     margin-bottom: 30px;
+    min-height: 390px;
 
     @include tablets {
         width: calc(100% / 2 - 15px);
@@ -49,6 +50,10 @@
     }
     @include tablets-two {
         width: 100%;
+    }
+
+    @include phones {
+        min-height: 300px;
     }
 
     &:last-child {

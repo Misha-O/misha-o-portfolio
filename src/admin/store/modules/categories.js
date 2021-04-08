@@ -8,16 +8,12 @@ export default {
             state.data = categories;
         },
         ADD_CATEGORY(state, category) {
+            category.skills = [];
             state.data.unshift(category);
         },
         REMOVE_CATEGORY(state, categoryId) {
             state.data = state.data.filter(category => category.id !== categoryId);
         },
-        // EDIT_CATEGORY(state, categoryToEdit) {
-        //     console.log("categoryToEdit", categoryToEdit);
-        //     let data = state.data.filter(category => category.id === categoryToEdit.id);
-        //     data.category = categoryToEdit.category;
-        // },
         EDIT_CATEGORY(state, categoryToEdit) {
             state.data = state.data.map(category => {
                 if (category.id === categoryToEdit.id) {
