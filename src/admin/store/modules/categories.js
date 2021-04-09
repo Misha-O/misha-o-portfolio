@@ -73,7 +73,6 @@ export default {
         async remove({ commit }, categoryId) {
             try {
                 const { data } = await this.$axios.delete(`/categories/${categoryId}`);
-                console.log(data);
                 commit("categories/REMOVE_CATEGORY", categoryId, { root: true });
             } catch (error) {
                 console.log(error);

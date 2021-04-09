@@ -1,22 +1,22 @@
 <template>
     <div class="projects-page-component page-component">
-        <div class="page-content">
-            <div class="container">
-                <div class="page-header">
-                    <div class="page-title">
+        <main class="maincontent">
+            <div class="admin__container">
+                <div class="header">
+                    <div class="title">
                         Блок "Работы"
                     </div>
                 </div>
                 <div class="form">
-                    <app-form />
+                    <app-form :newProject="tempProject" />
                 </div>
                 <ul class="cards">
                     <li class="item" v-for="project in projects" :key="project.id">
-                        <project-card :project="project" />
+                        <project-card :project="project" @remove="removeProject(project.id)" @edit="editProject" />
                     </li>
                 </ul>
             </div>
-        </div>
+        </main>
     </div>
 </template>
 
@@ -26,7 +26,13 @@ import projectCard from "../../components/projectCard/projectCard";
 import { mapState, mapActions } from "vuex";
 
 export default {
+    name: "Projects",
     components: { appForm, projectCard },
+    data() {
+        return {
+            tempProject: {},
+        };
+    },
     computed: {
         ...mapState("projects", {
             projects: state => state.data,
@@ -35,7 +41,17 @@ export default {
     methods: {
         ...mapActions({
             fetchProjects: "projects/fetch",
+            removeProjectAction: "projects/remove",
+            editProjectAction: "projects/edit",
         }),
+        removeProject(projectID) {
+            this.removeProjectAction(projectID);
+        },
+        editProject(projectToEdit) {
+            this.tempProject = projectToEdit;
+            console.log(this.tempProject);
+            // this.editProjectAction(projectToEdit);
+        },
     },
     mounted() {
         this.fetchProjects();

@@ -1,6 +1,10 @@
 import Vue from "vue";
 import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 import "swiper/swiper-bundle.css";
+import axios from "axios";
+import config from "../../env.paths.json";
+
+axios.defaults.baseURL = config.BASE_URL;
 
 new Vue({
     el: "#reviews-component",
@@ -56,8 +60,8 @@ new Vue({
             });
         },
     },
-    created() {
-        const data = require("../data/reviews.json");
+    async created() {
+        const { data } = await axios.get("/reviews/445");
         this.reviews = this.requireImagesToArray(data);
     },
 });

@@ -1,4 +1,8 @@
 import Vue from "vue";
+import axios from "axios";
+import config from "../../env.paths.json";
+
+axios.defaults.baseURL = config.BASE_URL;
 
 const tags = {
     template: "#projects-tags",
@@ -66,7 +70,7 @@ new Vue({
     methods: {
         requireImagesToArray(data) {
             return data.map(item => {
-                const requiredImage = require(`../images/content/${item.photo}`).default;
+                const requiredImage = item.photo;
                 item.photo = requiredImage;
                 return item;
             });
@@ -94,8 +98,8 @@ new Vue({
             if (index > projectsNumber) this.currentIndex = 0;
         },
     },
-    created() {
-        const data = require("../data/projects.json");
+    async created() {
+        const { data } = await axios.get("/works/445");
         this.projects = this.requireImagesToArray(data);
     },
 });

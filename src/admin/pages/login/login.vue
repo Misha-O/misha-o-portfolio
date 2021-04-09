@@ -10,7 +10,7 @@
                     <app-input title="Пароль" v-model="user.password" type="password" icon="key" :errorText="validation.firstError('user.password')" />
                 </div>
                 <div class="btn">
-                    <app-button :disabled="isSubmitDisabled" title="Отправить" />
+                    <app-button :disabled="isSubmitDisabled" title="Отправить" typeAttr="submit" />
                 </div>
             </form>
         </div>
@@ -25,6 +25,7 @@ import $axios from "../../requests.js";
 import { mapActions } from "vuex";
 
 export default {
+    name: "Login",
     components: { appButton, appInput },
     mixins: [ValidatorMixin],
     validators: {
@@ -47,6 +48,7 @@ export default {
     methods: {
         ...mapActions({
             showTooltip: "tooltips/show",
+            login: "user/login",
         }),
         async handleSubmit() {
             if ((await this.$validate()) === false) return;
@@ -57,8 +59,10 @@ export default {
                 const token = response.data.token;
                 localStorage.setItem("token", token);
                 $axios.defaults.headers["Authorization"] = `Bearer ${token}`;
-                await $axios.get("/user");
-                this.$router.replace("/");
+
+                const userResponse = await $axios.get("/user");
+                this.login(userResponse.data.user);
+                this.$router.replace("/about");
             } catch (error) {
                 this.showTooltip({
                     text: error.response.data.error,

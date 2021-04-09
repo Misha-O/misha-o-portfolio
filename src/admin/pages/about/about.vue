@@ -36,6 +36,7 @@ import category from "../../components/category/category";
 import { mapActions, mapState } from "vuex";
 
 export default {
+    name: "About",
     components: {
         iconedBtn,
         category,

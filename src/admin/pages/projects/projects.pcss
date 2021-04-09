@@ -1,5 +1,37 @@
 @import "../../../styles/mixins.pcss";
 
+.maincontent {
+    padding-top: 60px;
+    padding-bottom: 10px;
+    background: url("../../../images/content/admin-bg.jpg") center center / cover no-repeat;
+    flex: 1;
+    @include phones {
+        padding-top: 20px;
+    }
+}
+.admin__container {
+    margin: 0 auto;
+    max-width: 1480px;
+    width: 95%;
+}
+.header {
+    display: flex;
+    margin-bottom: 60px;
+    @include phones {
+        flex-direction: column;
+    }
+}
+.title {
+    margin-right: 60px;
+    font-size: 21px;
+    font-weight: 700;
+    color: $text-color;
+    @include phones {
+        font-size: 18px;
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+}
 .cards {
     display: flex;
     flex-wrap: wrap;
@@ -13,15 +45,4 @@
 
 .form {
     margin-bottom: 30px;
-}
-.page-title {
-    margin-right: 60px;
-    font-size: 21px;
-    font-weight: 700;
-    color: $text-color;
-    @include phones {
-        font-size: 18px;
-        margin-right: 0;
-        margin-bottom: 30px;
-    }
 }

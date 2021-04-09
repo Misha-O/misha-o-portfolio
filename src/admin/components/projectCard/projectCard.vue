@@ -14,8 +14,8 @@
                 </div>
                 <a :href="project.link" class="link">{{ project.link }}</a>
                 <div class="btns">
-                    <icon symbol="pencil" title="Править"></icon>
-                    <icon symbol="trash" title="Удалить"></icon>
+                    <icon @click="$emit('edit', project)" symbol="pencil" title="Править"></icon>
+                    <icon @click="$emit('remove', $event)" symbol="trash" title="Удалить"></icon>
                 </div>
             </div>
         </div>
@@ -28,13 +28,14 @@ import icon from "../icon/icon";
 import tagsList from "../tagList/tagList";
 
 export default {
+    name: "projectCard",
     components: { card, icon, tagsList },
     props: {
         project: Object,
     },
     computed: {
         cover() {
-            return `http://localhost:8000/${this.project.photo}`;
+            return `https://webdev-api.loftschool.com/${this.project.photo}`;
         },
     },
 };
