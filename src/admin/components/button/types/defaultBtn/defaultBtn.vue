@@ -13,7 +13,7 @@ export default {
     props: {
         title: {
             type: String,
-            default: "Отправить",
+            default: "Upload",
         },
         disabled: {
             type: Boolean,

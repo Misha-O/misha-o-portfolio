@@ -16,7 +16,7 @@ const info = {
     },
     computed: {
         tagsArray() {
-            return this.currentProject.skills.split(",");
+            return this.currentProject.techs.split(",");
         },
     },
 };
@@ -54,6 +54,7 @@ new Vue({
         return {
             projects: [],
             currentIndex: 0,
+            url: "https://webdev-api.loftschool.com/",
         };
     },
     computed: {
@@ -63,18 +64,17 @@ new Vue({
     },
     watch: {
         currentIndex(value) {
-            console.log(value);
             this.infiniteIndexLoop(value);
         },
     },
     methods: {
-        requireImagesToArray(data) {
-            return data.map(item => {
-                const requiredImage = item.photo;
-                item.photo = requiredImage;
-                return item;
-            });
-        },
+        // requireImagesToArray(data) {
+        //     return data.map(item => {
+        //         const requiredImage = item.photo;
+        //         item.photo = requiredImage;
+        //         return item;
+        //     });
+        // },
         slideChange(direction) {
             const lastItem = this.projects[this.projects.length - 1];
             switch (direction) {
@@ -100,6 +100,7 @@ new Vue({
     },
     async created() {
         const { data } = await axios.get("/works/445");
-        this.projects = this.requireImagesToArray(data);
+        this.projects = data;
+        console.log(this.projects);
     },
 });

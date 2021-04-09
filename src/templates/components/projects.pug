@@ -1,5 +1,5 @@
 script(type="text/x-template")#projects-container
-    .projects-preview
+    .projects-preview(v-if="projects.length")
         display(
             :currentProject='currentProject'
             :projects='projects'
@@ -12,7 +12,7 @@ script(type="text/x-template")#projects-container
 
 script(type="text/x-template")#projects-display
     .projects-preview__pictures(:data-slide="currentIndex + 1")
-        img(:src="currentProject.photo").projects-preview__img
+        img(:src="`https://webdev-api.loftschool.com/${currentProject.photo}`").projects-preview__img
         .projects-preview__thumbs
             thumbs(
                 :projects='reversedProjects'
@@ -31,7 +31,7 @@ script(type="text/x-template")#projects-thumbs
             :class="{active: currentProject.id === slide.id}"
             )
             button(type="button").thumbs__link
-                img(:src="slide.photo").projects-preview__img
+                img(:src="`https://webdev-api.loftschool.com/${slide.photo}`").projects-preview__img
 
 script(type="text/x-template")#projects-btns
     .square-btns 
@@ -51,7 +51,8 @@ script(type="text/x-template")#projects-info
         )
         .projects-preview__title {{currentProject.title}}
         .projects-preview__desc 
-            p {{currentProject.desc}}
+            p {{currentProject.description}}
+            p {{currentProject.link}}
         a(:href="currentProject.link" target="_blank").iconed-link Посмотреть сайт
 
 script(type="text/x-template")#projects-tags

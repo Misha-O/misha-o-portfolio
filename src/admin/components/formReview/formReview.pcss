@@ -9,11 +9,14 @@
 }
 
 .form-col {
-    width: 50%;
+    width: 30%;
     margin-right: 30px;
 
     &:last-child {
         margin-right: 0;
+    }
+    &.form-col-data {
+        flex: 1;
     }
     @include tablets {
         width: 70%;
@@ -27,13 +30,14 @@
 }
 
 .uploader {
-    min-height: 276px;
+    min-height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     background: #dee4ed;
     border: 1px dashed #a1a1a1;
+    border-radius: 50%;
     padding: 0 23%;
     text-align: center;
     position: relative;
@@ -54,6 +58,14 @@
     color: $text-color;
     opacity: 0.5;
     margin-bottom: 30px;
+}
+.form-row-group {
+    display: flex;
+    justify-content: space-around;
+
+    & .form-row {
+        width: 45%;
+    }
 }
 
 .form-row {
