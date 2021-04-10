@@ -6,8 +6,8 @@
                     <div class="form-cols">
                         <div class="form-col">
                             <label
-                                :style="{ backgroundImage: `url(${newProject.preview})` }"
-                                :class="['uploader', { active: newProject.preview }, { hovered: hovered }]"
+                                :style="{ backgroundImage: `url(${newReview.preview})` }"
+                                :class="['uploader', { active: newReview.preview }, { hovered: hovered }]"
                                 @dragover.prevent="handleDragOver"
                                 @dragleave="hovered = false"
                                 @drop="handleChange"
@@ -21,14 +21,14 @@
                         <div class="form-col form-col-data">
                             <div class="form-row-group">
                                 <div class="form-row">
-                                    <app-input v-model="newProject.title" title="Имя автора" />
+                                    <app-input v-model="newReview.author" title="Имя автора" />
                                 </div>
                                 <div class="form-row">
-                                    <app-input v-model="newProject.link" title="Дефтельность" />
+                                    <app-input v-model="newReview.occ" title="Деятельность" />
                                 </div>
                             </div>
                             <div class="form-row">
-                                <app-input v-model="newProject.description" field-type="textarea" title="Отзыв" />
+                                <app-input v-model="newReview.text" field-type="textarea" title="Отзыв" />
                             </div>
                         </div>
                     </div>
@@ -53,17 +53,20 @@ import appInput from "../input/input";
 import { mapActions } from "vuex";
 
 export default {
-    name: "formProject",
-    props: ["newProject"],
+    name: "formReview",
+    // props: {
+    //     newReview: {
+    //         type: Object,
+    //     },
+    // },
     components: { card, appButton, appInput },
     data() {
         return {
             hovered: false,
-            newProject: {
-                title: "",
-                link: "",
-                description: "",
-                techs: "",
+            newReview: {
+                auth: "",
+                occ: "",
+                text: "",
                 photo: {},
                 preview: "",
             },
@@ -71,16 +74,15 @@ export default {
     },
     methods: {
         ...mapActions({
-            addNewProject: "projects/add",
+            addNewReview: "reviews/add",
         }),
         async handleSubmit() {
-            await this.addNewProject(this.newProject);
+            await this.addNewReview(this.newReview);
         },
         handleChange(event) {
             event.preventDefault();
-            console.log(event);
             const file = event.dataTransfer ? event.dataTransfer.files[0] : event.target.files[0];
-            this.newProject.photo = file;
+            this.newReview.photo = file;
 
             this.renderPhoto(file);
             this.hovered = false;
@@ -90,7 +92,7 @@ export default {
             reader.readAsDataURL(file);
 
             reader.onloadend = () => {
-                this.newProject.preview = reader.result;
+                this.newReview.preview = reader.result;
             };
         },
         handleDragOver(e) {

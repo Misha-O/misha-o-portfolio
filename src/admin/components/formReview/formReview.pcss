@@ -65,6 +65,13 @@
 
     & .form-row {
         width: 45%;
+
+        @include phones {
+            width: 100%;
+        }
+    }
+    @include phones {
+        flex-direction: column;
     }
 }
 

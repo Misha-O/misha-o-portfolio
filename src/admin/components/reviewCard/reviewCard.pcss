@@ -1,37 +1,53 @@
-.projects-wrapper {
+@import "../../../styles/mixins.pcss";
+
+.reviews-wrapper {
     display: flex;
     flex-direction: column;
     height: 100%;
+    min-height: 380px;
+
+    @include tablets {
+        min-height: 300px;
+    }
+}
+.reviews-container {
+    padding: 15px;
+}
+.title-wrap {
+    padding: 30px;
+    display: flex;
 }
 
 .pic {
-    height: 190px;
-    position: relative;
-}
-
-.tag {
-    position: absolute;
-    bottom: 2px;
-    right: 0;
+    height: 55px;
+    width: 55px;
+    margin-right: 20px;
 }
 
 .image {
     object-fit: cover;
     height: 100%;
     width: 100%;
+    border-radius: 50%;
 }
 
-.data {
-    padding: 40px 30px;
+.review-wrap {
+    padding: 30px;
     flex: 1;
     display: flex;
     flex-direction: column;
 }
-
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
 .title {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 15px;
+}
+.occ {
+    color: rgba(65, 76, 99, 0.5);
 }
 
 .text {
@@ -41,15 +57,8 @@
     margin-bottom: 20px;
 }
 
-.link {
-    display: block;
-    font-weight: 600;
-    color: #383bcf;
-    margin-bottom: 44px;
-    margin-top: auto;
-}
-
 .btns {
     display: flex;
     justify-content: space-between;
+    margin-top: auto;
 }

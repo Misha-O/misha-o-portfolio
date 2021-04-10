@@ -5,6 +5,7 @@ export default {
     },
     mutations: {
         ADD_PROJECT(state, newProject) {
+            console.log("projects", state.data);
             state.data.push(newProject);
         },
         SET_PROJECTS(state, projects) {
@@ -27,6 +28,7 @@ export default {
 
             try {
                 const { data } = await this.$axios.post("/works", formData);
+                console.log("STORE ADD PROJCT:", data);
                 commit("ADD_PROJECT", data);
             } catch (error) {
                 console.log("error");

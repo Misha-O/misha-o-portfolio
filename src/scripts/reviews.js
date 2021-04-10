@@ -52,16 +52,17 @@ new Vue({
                     break;
             }
         },
-        requireImagesToArray(data) {
-            return data.map(item => {
-                const requiredImage = require(`../images/content/${item.pic}`).default;
-                item.pic = requiredImage;
-                return item;
-            });
-        },
+        // requireImagesToArray(data) {
+        //     return data.map(item => {
+        //         const requiredImage = require(`../images/content/${item.pic}`).default;
+        //         item.pic = requiredImage;
+        //         return item;
+        //     });
+        // },
     },
     async created() {
         const { data } = await axios.get("/reviews/445");
-        this.reviews = this.requireImagesToArray(data);
+        // this.reviews = this.requireImagesToArray(data);
+        this.reviews = data;
     },
 });

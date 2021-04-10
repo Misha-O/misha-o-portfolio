@@ -56,19 +56,23 @@ import { mapActions } from "vuex";
 
 export default {
     name: "formProject",
-    props: ["newProject"],
+    props: {
+        newProject: {
+            type: Object,
+        },
+    },
     components: { card, appButton, appInput, tagsAdder },
     data() {
         return {
             hovered: false,
-            newProject: {
-                title: "",
-                link: "",
-                description: "",
-                techs: "",
-                photo: {},
-                preview: "",
-            },
+            // newProject: {
+            //     title: "",
+            //     link: "",
+            //     description: "",
+            //     techs: "",
+            //     photo: {},
+            //     preview: "",
+            // },
         };
     },
     methods: {
@@ -80,7 +84,6 @@ export default {
         },
         handleChange(event) {
             event.preventDefault();
-            console.log(event);
             const file = event.dataTransfer ? event.dataTransfer.files[0] : event.target.files[0];
             this.newProject.photo = file;
 

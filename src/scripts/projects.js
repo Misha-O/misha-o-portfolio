@@ -101,6 +101,5 @@ new Vue({
     async created() {
         const { data } = await axios.get("/works/445");
         this.projects = data;
-        console.log(this.projects);
     },
 });

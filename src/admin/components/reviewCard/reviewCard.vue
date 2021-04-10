@@ -1,20 +1,22 @@
 <template>
     <card simple>
-        <div class="projects-wrapper">
+        <div class="reviews-wrapper">
             <div class="title-wrap">
                 <div class="pic">
                     <img class="image" :src="cover" />
-                    <div class="title">{{ project.title }}</div>
+                </div>
+                <div class="user-info">
+                    <div class="title">{{ review.author }}</div>
+                    <div class="occ">{{ review.occ }}</div>
                 </div>
             </div>
-            <div class="data">
+            <div class="review-wrap">
                 <div class="text">
-                    <p>{{ project.description }}</p>
+                    <p>{{ review.text }}</p>
                 </div>
-                <a :href="project.link" class="link">{{ project.link }}</a>
                 <div class="btns">
-                    <icon @click="$emit('edit', project)" symbol="pencil" title="Править"></icon>
-                    <icon @click="$emit('remove', $event)" symbol="trash" title="Удалить"></icon>
+                    <icon @click="$emit('edit', review)" symbol="pencil" title="Править"></icon>
+                    <icon @click="$emit('remove', $event)" symbol="cross" title="Удалить"></icon>
                 </div>
             </div>
         </div>
@@ -30,11 +32,11 @@ export default {
     name: "reviewCard",
     components: { card, icon, tagsList },
     props: {
-        project: Object,
+        review: Object,
     },
     computed: {
         cover() {
-            return `https://webdev-api.loftschool.com/${this.project.photo}`;
+            return `https://webdev-api.loftschool.com/${this.review.photo}`;
         },
     },
 };

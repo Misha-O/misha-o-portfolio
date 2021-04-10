@@ -8,7 +8,7 @@
                     </div>
                 </div>
                 <div class="form">
-                    <app-form :newProject="tempProject" />
+                    <app-form :newProject="edittedProject" />
                 </div>
                 <ul class="cards">
                     <li class="item" v-for="project in projects" :key="project.id">
@@ -30,7 +30,14 @@ export default {
     components: { appForm, projectCard },
     data() {
         return {
-            tempProject: {},
+            edittedProject: {
+                title: "",
+                link: "",
+                description: "",
+                techs: "",
+                photo: {},
+                preview: "",
+            },
         };
     },
     computed: {
@@ -48,13 +55,14 @@ export default {
             this.removeProjectAction(projectID);
         },
         editProject(projectToEdit) {
-            this.tempProject = projectToEdit;
-            console.log(this.tempProject);
+            this.edittedProject = projectToEdit;
+            console.log(this.edittedProject);
             // this.editProjectAction(projectToEdit);
         },
     },
     mounted() {
         this.fetchProjects();
+        console.log("vue:", this.projects);
     },
 };
 </script>

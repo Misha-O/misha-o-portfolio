@@ -12,7 +12,7 @@ script(type="text/x-template")#reviews-container
               .quote__user 
                 .user-display__avatar 
                   .user-display__avatar--style 
-                    img(:src="review.pic").user-display__pic
+                    img(:src="`https://webdev-api.loftschool.com/${review.photo}`").user-display__pic
                 .user-display__data
                   .user-display__name {{review.name}}
                   .user-display__occ {{review.occ}}

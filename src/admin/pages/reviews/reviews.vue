@@ -1,5 +1,5 @@
 <template>
-    <div class="projects-page-component page-component">
+    <div class="reviews-page-component page-component">
         <main class="maincontent">
             <div class="admin__container">
                 <div class="header">
@@ -8,11 +8,11 @@
                     </div>
                 </div>
                 <div class="form">
-                    <app-form :newProject="tempProject" />
+                    <app-form />
                 </div>
                 <ul class="cards">
-                    <li class="item" v-for="project in projects" :key="project.id">
-                        <project-card :project="project" @remove="removeProject(project.id)" @edit="editProject" />
+                    <li class="item" v-for="review in reviews" :key="review.id">
+                        <review-card :review="review" @remove="removeReview(review.id)" @edit="editReview" />
                     </li>
                 </ul>
             </div>
@@ -22,39 +22,45 @@
 
 <script>
 import appForm from "../../components/formReview/formReview";
-import projectCard from "../../components/reviewCard/reviewCard";
+import reviewCard from "../../components/reviewCard/reviewCard";
 import { mapState, mapActions } from "vuex";
 
 export default {
     name: "Reviews",
-    components: { appForm, projectCard },
+    components: { appForm, reviewCard },
     data() {
         return {
-            tempProject: {},
+            edittedReview: {
+                author: "",
+                occ: "",
+                text: "",
+                photo: {},
+                preview: "",
+            },
         };
     },
     computed: {
-        ...mapState("projects", {
-            projects: state => state.data,
+        ...mapState("reviews", {
+            reviews: state => state.data,
         }),
     },
     methods: {
         ...mapActions({
-            fetchProjects: "projects/fetch",
-            removeProjectAction: "projects/remove",
-            editProjectAction: "projects/edit",
+            fetchReviews: "reviews/fetch",
+            removeReviewAction: "reviews/remove",
+            editReviewAction: "reviews/edit",
         }),
-        removeProject(projectID) {
-            this.removeProjectAction(projectID);
+        removeReview(reviewID) {
+            this.removeReviewAction(reviewID);
         },
-        editProject(projectToEdit) {
-            this.tempProject = projectToEdit;
-            console.log(this.tempProject);
-            // this.editProjectAction(projectToEdit);
+        editReview(reviewToEdit) {
+            this.edittedReview = reviewToEdit;
+            console.log(this.edittedReview);
+            // this.editReviewAction(reviewToEdit);
         },
     },
     mounted() {
-        this.fetchProjects();
+        this.fetchReviews();
     },
 };
 </script>
